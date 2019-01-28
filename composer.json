@@ -1,0 +1,16 @@
+{
+    "name": "pixan/cfdi",
+    "description": "CFDi Module for Pixan APPS",
+    "authors": [
+        {
+            "name": "Guillermo Villalobos",
+            "email": "guillermo@pixan.io"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Pixan\\Cfdi\\": "src"
+        }
+    }
+}
