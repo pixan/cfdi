@@ -7,11 +7,18 @@ class TimbradorExpressService implements StampServiceInterface
   const DEVELOPMENT_ENDPOINT  = 'https://dev.advans.mx/ws/awscfdi.php?wsdl';
   const PRODUCTION_ENDPOINT   = 'https://ws33.advans.mx/ws/awscfdi.php?wsdl';
 
+  public function __construct(){
+    if(!config('cfdi.drivers.timbrador.api_key', false))
+    {
+      abort(400, "API Key for Timbrador Express has not been set in configuration file");
+    }
+  }
+
   public function stamp($xml){
     // Call web service
     $client = new \SoapClient(config('cfdi.sandbox') ? self::DEVELOPMENT_ENDPOINT : self::PRODUCTION_ENDPOINT);
     $params = [
-      'credential'  => config('cfdi.drivers.timbrador.API_KEY'),
+      'credential'  => config('cfdi.drivers.timbrador.api_key'),
       'cfdi'        => $xml
     ];
 

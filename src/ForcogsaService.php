@@ -7,6 +7,13 @@ class ForcogsaService implements StampServiceInterface
   const DEVELOPMENT_ENDPOINT  = 'http://dev33.facturacfdi.mx/WSTimbradoCFDIService?wsdl';
   const PRODUCTION_ENDPOINT   = 'https://v33.facturacfdi.mx/WSTimbradoCFDIService?wsdl';
 
+  public function __construct(){
+    if(!config('cfdi.drivers.forcogsa.username', false) || !config('cfdi.drivers.forcogsa.password', false))
+    {
+      abort(400, "Credentials for Formas Digitales have not been set in configuration file");
+    }
+  }
+
   public function stamp($xml){
     // Call web service
     $client = new \SoapClient(config('cfdi.sandbox') ? self::DEVELOPMENT_ENDPOINT : self::PRODUCTION_ENDPOINT);
