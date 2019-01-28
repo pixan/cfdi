@@ -31,7 +31,7 @@ config/cfdi.php
 
 ## Usage
 
-### Generate an XML Seal
+### Generate an XML seal
 To generate the seal of a previously formed XML file, create an array containing a valid CFDi certificate and its key file in PEM format. Calling the `seal` method on the *cfdi* instance will return a valid seal string for the provided XML document:
 ```php
 $config = [
@@ -42,7 +42,7 @@ $cfdi = new Cfdi($config);
 $seal = $cfdi->seal($xml);
 ```
 
-### Stamp an invoice
+### Stamp an XML
 
 Calling the `stamp` method on the _cfdi_ instance will return a valid xml that has been stamped by the requested PAC service and configured environment. *Make sure that the proper configuration was provided when constructing the *cfdi* instance.
 ```php
