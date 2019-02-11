@@ -30,7 +30,7 @@ return [
     'drivers' => [
 
         'timbrador' => [
-          'API_KEY' => env('TIMBRADOR_EXPRESS_API_KEY')
+          'api_key' => env('TIMBRADOR_EXPRESS_API_KEY')
         ],
         'forcogsa'  => [
           'username'  => env('FORCOGSA_USERNAME'),
