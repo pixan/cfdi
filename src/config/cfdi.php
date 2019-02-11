@@ -9,7 +9,7 @@ return [
     |
     */
 
-    'default' => env('CFDI_DRIVER', 'timbrador'),
+    'driver' => env('CFDI_DRIVER', 'timbrador'),
 
     /*
     |--------------------------------------------------------------------------
