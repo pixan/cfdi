@@ -34,7 +34,7 @@ class Cfdi
     $xml = Cfdi::tidy($xml);
 
     $xsl = new \DomDocument;
-    $xsl->load('./xslt/cadenaoriginal_3_3.xslt');
+    $xsl->load(__DIR__.'/xslt/cadenaoriginal_3_3.xslt');
     $xp = new \XsltProcessor();
     $xp->importStylesheet($xsl);
 
