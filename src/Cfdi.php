@@ -77,4 +77,23 @@ class Cfdi
 		], 'utf8');
     return $xml;
   }
+
+  public function uuid($xml)
+  {
+    $xml = Cfdi::tidy($xml);
+    $xml_doc = new \DomDocument;
+    if($xml_doc->loadXML($xml) === false){
+			// Abort, XML has errors
+      $xml_doc = new \DomDocument;
+        if($xml_doc->loadXML($xml) === false){
+    			// Abort, XML has errors
+
+    		}
+    		$xml_doc->saveXML();
+        return $xml_doc->getElementsByTagName('TimbreFiscalDigital')[0]->getAttribute('UUID');
+
+		}
+		$xml_doc->saveXML();
+    return $xml_doc->getElementsByTagName('TimbreFiscalDigital')[0]->getAttribute('UUID');
+  }
 }
